@@ -1,42 +1,34 @@
 import { Logo } from "../../../theme/Logo";
+import { Button } from "../Button";
 import { MenuWrapper } from "./styles/MenuWrapper";
 
-const Menu = () => {
-  const links = [
-    {
-      texto: 'Home',
-      url: '/',
-    },
-    {
-      texto: 'Perguntas frequentes',
-      url: '/faq',
-    },
-    {
-      texto: 'Sobre',
-      url: '/sobre',
-    },
-  ]
-
+export default function Menu() {
   return (
     <MenuWrapper>
-      <MenuWrapper.LeftSide>
+      <MenuWrapper.LeftSide> {/* MenuWrapper.LeftSide */}
         <Logo />
       </MenuWrapper.LeftSide>
-      <MenuWrapper.CentralSide>
-        {links.map((link) => {
-          return (
-            <li>
-              <a href={link.url}>{link.texto}</a>
-            </li>
-          );
-        })}
+      <MenuWrapper.CentralSide as="ul"> {/* MenuWrapper.CentralSide */}
+        {[
+          { url: '/', name: 'Home' },
+          { url: '/faq', name: 'Perguntas Frequentes' },
+          { url: '/sobre', name: 'Sobre' },
+        ].map((link) => (
+          <li key={link.url}>
+            <a href={link.url}>
+              {link.name}
+            </a>
+          </li>
+        ))}
       </MenuWrapper.CentralSide>
-      <MenuWrapper.RightSide>
-        <button>Cadastrar</button>
-        <button>Entrar</button>
+      <MenuWrapper.RightSide> {/* MenuWrapper.RightSide */}
+        <Button type="button" ghost variant="secondary.main">
+          Entrar
+        </Button>
+        <Button type="button" variant="primary.main">
+          Cadastrar
+        </Button>
       </MenuWrapper.RightSide>
     </MenuWrapper>
   )
 }
-
-export default Menu
