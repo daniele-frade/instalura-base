@@ -44,5 +44,6 @@ export const colors = {
     // voce pode escrever so uma como o exemplo do colors
     colors,
     borderRadius: '8px',
+    fontFamily: '\'Rubik\', sans-serif',
     transition: '200ms ease-in-out',
   }
